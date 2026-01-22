@@ -2,12 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-interface NavbarProps {
-  design: number;
-  setDesign: (n: number) => void;
-}
-
-export default function Navbar({ design, setDesign }: NavbarProps) {
+export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -62,38 +57,17 @@ export default function Navbar({ design, setDesign }: NavbarProps) {
             </a>
           </div>
 
-          {/* Design Toggle & CTA */}
-          <div className="flex items-center gap-4">
-            {/* Design Toggle */}
-            <div className="flex items-center gap-1 bg-white/10 backdrop-blur-sm rounded-full p-1">
-              {[1, 2].map((n) => (
-                <button
-                  key={n}
-                  onClick={() => setDesign(n)}
-                  className={`w-8 h-8 rounded-full font-mono text-xs font-bold transition-all duration-300 ${
-                    design === n
-                      ? "bg-[#D4A853] text-black"
-                      : "bg-transparent text-white/60 hover:text-white hover:bg-white/10"
-                  }`}
-                  title={n === 1 ? "Current" : n === 2 ? "Nostalgia" : "Futuristic"}
-                >
-                  {n}
-                </button>
-              ))}
-            </div>
-
-            {/* CTA */}
-            <a
-              href="https://www.skool.com/Recess/about"
-              className={`font-sans text-xs tracking-widest uppercase px-6 py-2 border transition-all duration-300 ${
-                isScrolled
-                  ? "border-white/30 text-white hover:bg-white hover:text-black"
-                  : "border-white/30 text-white hover:bg-white hover:text-black"
-              }`}
-            >
-              Join Recess
-            </a>
-          </div>
+          {/* CTA */}
+          <a
+            href="https://www.skool.com/Recess/about"
+            className={`font-sans text-xs tracking-widest uppercase px-6 py-2 border transition-all duration-300 ${
+              isScrolled
+                ? "border-white/30 text-white hover:bg-white hover:text-black"
+                : "border-white/30 text-white hover:bg-white hover:text-black"
+            }`}
+          >
+            Join Recess
+          </a>
         </div>
       </div>
     </nav>

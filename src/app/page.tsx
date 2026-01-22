@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Navbar from "@/components/Navbar";
 
 // ============================================
@@ -187,140 +186,13 @@ function Design1() {
 }
 
 // ============================================
-// DESIGN 2: Video-Heavy (Immersive Experience)
-// ============================================
-function Design2() {
-  const videos = [
-    "https://res.cloudinary.com/dzlnqcmqn/video/upload/q_auto,f_auto/v1769038038/222_iguibm.mp4",
-    "https://res.cloudinary.com/dzlnqcmqn/video/upload/q_auto,f_auto/v1769038037/4_gvs32m.mp4",
-    "https://res.cloudinary.com/dzlnqcmqn/video/upload/q_auto,f_auto/v1769038048/28_thd2s6.mp4",
-    "https://res.cloudinary.com/dzlnqcmqn/video/upload/q_auto,f_auto/v1769038037/12_orj6tj.mp4",
-    "https://res.cloudinary.com/dzlnqcmqn/video/upload/q_auto,f_auto/v1769038049/27_f5tcak.mp4",
-    "https://res.cloudinary.com/dzlnqcmqn/video/upload/q_auto,f_auto/v1769038038/11_l43mxb.mp4",
-    "https://res.cloudinary.com/dzlnqcmqn/video/upload/q_auto,f_auto/v1769038054/25_s0tdt8.mp4",
-    "https://res.cloudinary.com/dzlnqcmqn/video/upload/q_auto,f_auto/v1769038041/19_kuuyat.mp4",
-    "https://res.cloudinary.com/dzlnqcmqn/video/upload/q_auto,f_auto/v1769038045/35_gohawn.mp4",
-    "https://res.cloudinary.com/dzlnqcmqn/video/upload/q_auto,f_auto/v1769038060/18_u4hwoe.mp4",
-  ];
-
-  return (
-    <div className="bg-black text-white">
-      {/* Hero - Full Screen Video */}
-      <section className="h-screen relative overflow-hidden flex items-center justify-center">
-        <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
-          <source src={videos[0]} type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-black/30" />
-        <div className="relative z-10 text-center px-8">
-          <h1 className="font-script text-8xl md:text-[10rem] lg:text-[14rem] text-white mb-4">
-            Recess
-          </h1>
-          <p className="font-sans text-2xl md:text-3xl text-white/80 tracking-wide">
-            Real relationships. Real support. Real community.
-          </p>
-        </div>
-      </section>
-
-      {/* Video Grid 1 */}
-      <section className="grid grid-cols-2 md:grid-cols-3">
-        {videos.slice(1, 4).map((vid, i) => (
-          <div key={i} className="aspect-square relative overflow-hidden">
-            <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
-              <source src={vid} type="video/mp4" />
-            </video>
-          </div>
-        ))}
-      </section>
-
-      {/* Simple CTA */}
-      <section id="why" className="py-20 px-8 text-center">
-        <p className="font-serif text-3xl md:text-4xl text-white/90 max-w-2xl mx-auto mb-8">
-          Where Skool owners come to breathe.
-        </p>
-        <a href="https://www.skool.com/recess/about" className="inline-block font-sans text-lg border-2 border-white text-white px-12 py-4 hover:bg-white hover:text-black transition-all">
-          Join Recess
-        </a>
-      </section>
-
-      {/* Full Width Video */}
-      <section className="h-[70vh] relative">
-        <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
-          <source src={videos[4]} type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-          <p className="font-script text-5xl md:text-7xl text-white text-center px-8">
-            Find your people.
-          </p>
-        </div>
-      </section>
-
-      {/* Video Grid 2 */}
-      <section id="features" className="grid grid-cols-2">
-        {videos.slice(5, 7).map((vid, i) => (
-          <div key={i} className="aspect-[4/3] relative overflow-hidden">
-            <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
-              <source src={vid} type="video/mp4" />
-            </video>
-          </div>
-        ))}
-      </section>
-
-      {/* Minimal Text */}
-      <section id="for-you" className="py-24 px-8 text-center">
-        <p className="font-sans text-xl text-white/60 tracking-widest uppercase mb-4">
-          For Skool Owners Only
-        </p>
-        <p className="font-serif text-4xl md:text-5xl text-white max-w-3xl mx-auto">
-          Rest. Connect. Grow.
-        </p>
-      </section>
-
-      {/* More Videos */}
-      <section className="grid grid-cols-3">
-        {videos.slice(7, 10).map((vid, i) => (
-          <div key={i} className="aspect-[3/4] relative overflow-hidden">
-            <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
-              <source src={vid} type="video/mp4" />
-            </video>
-          </div>
-        ))}
-      </section>
-
-      {/* Final Full Screen */}
-      <section className="h-screen relative flex items-center justify-center">
-        <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
-          <source src={videos[4]} type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="relative z-10 text-center px-8">
-          <h2 className="font-script text-6xl md:text-8xl text-white mb-8">
-            Join Recess
-          </h2>
-          <a href="https://www.skool.com/recess/about" className="inline-block font-sans text-xl bg-white text-black px-16 py-5 hover:bg-white/90 transition-all">
-            Enter
-          </a>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-8 px-8 text-center">
-        <span className="font-sans text-xs text-white/30">&copy; 2026 Recess</span>
-      </footer>
-    </div>
-  );
-}
-
-// ============================================
 // MAIN PAGE COMPONENT
 // ============================================
 export default function Home() {
-  const [design, setDesign] = useState(1);
-
   return (
     <>
-      <Navbar design={design} setDesign={setDesign} />
-      {design === 1 && <Design1 />}
-      {design === 2 && <Design2 />}
+      <Navbar />
+      <Design1 />
     </>
   );
 }
