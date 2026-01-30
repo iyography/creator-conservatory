@@ -144,9 +144,9 @@ function FeatureCard({
 // ============================================
 function CreatorConservatory() {
   const videos = {
-    hero: "/vids/6.mp4",
-    about: "/vids/1.mp4",
-    midStatement: "/vids/1.mp4",
+    hero: "https://res.cloudinary.com/dzlnqcmqn/video/upload/v1769755237/6_xkvtay.mp4",
+    about: "https://res.cloudinary.com/dzlnqcmqn/video/upload/v1769755252/7606080-hd_1080_1920_30fps_mvzhgi.mp4",
+    midStatement: "https://res.cloudinary.com/dzlnqcmqn/video/upload/v1768478147/3_orq6mr.mp4",
     whatIsnt: "/vids/1.mp4",
   };
 

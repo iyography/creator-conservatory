@@ -1025,7 +1025,7 @@ export default function QuizPage() {
         preload="auto"
         className="fixed inset-0 w-full h-full object-cover z-0"
       >
-        <source src="/vids/2.mp4" type="video/mp4" />
+        <source src="https://res.cloudinary.com/dzlnqcmqn/video/upload/v1769755241/2_zrypxu.mp4" type="video/mp4" />
       </video>
       <div className="fixed inset-0 bg-black/60 z-0" />
 
