@@ -1,7 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  /* Recess Brand Colors */
+  /* Creator Conservatory Brand Colors - Clean & Modern */
+  --background: #FFFFFF;
+  --background-alt: #F8FAFC;
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --accent: #1E3A5F;
+  --accent-light: #3B82F6;
+  --cta: #059669;
+  --cta-hover: #047857;
+  --border: #E2E8F0;
+
+  /* Legacy colors for compatibility */
   --resonant-red: #8B2332;
   --soft-blue: #9EB1C7;
   --quiet-ivory: #FAF6E3;
@@ -10,13 +21,20 @@
   --grounded-black: #0A0A0A;
   --camel: #B8865B;
 
-  --background: var(--archive-white);
-  --foreground: var(--grounded-black);
+  --foreground: var(--text-primary);
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-alt: var(--background-alt);
   --color-foreground: var(--foreground);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-cta: var(--cta);
+  --color-cta-hover: var(--cta-hover);
+  --color-border: var(--border);
   --color-resonant-red: var(--resonant-red);
   --color-soft-blue: var(--soft-blue);
   --color-quiet-ivory: var(--quiet-ivory);
@@ -28,6 +46,7 @@
   --font-serif: var(--font-cormorant);
   --font-display: var(--font-space-grotesk);
   --font-sans: var(--font-inter);
+  --font-ninja: var(--font-black-ops);
 }
 
 html {
@@ -55,10 +74,17 @@ body {
   font-family: var(--font-space-grotesk), sans-serif;
 }
 
+/* Ninja font for main headers - keeping for compatibility */
+.font-ninja {
+  font-family: var(--font-black-ops), 'Black Ops One', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 /* Selection styling */
 ::selection {
-  background-color: var(--resonant-red);
-  color: var(--archive-white);
+  background-color: var(--accent);
+  color: white;
 }
 
 /* Hide video controls and play buttons */

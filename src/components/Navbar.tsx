@@ -1,9 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+  const isQuizPage = pathname === "/quiz";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,57 +20,63 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-black/80 backdrop-blur-md py-4"
-          : "bg-transparent py-6"
+          ? "py-3 bg-black/50 backdrop-blur-md"
+          : "py-5 bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-            className="font-script text-2xl md:text-3xl text-white hover:opacity-80 transition-all duration-300"
+            href="/"
+            className="text-lg md:text-xl font-bold transition-all duration-300 text-white hover:text-white/80"
           >
-            Recess
+            Creator Conservatory
           </a>
 
-          {/* Nav Links */}
-          <div className="hidden md:flex items-center gap-8">
+          {/* Nav Links - only show on non-quiz pages */}
+          {!isQuizPage && (
+            <div className="hidden md:flex items-center gap-8">
+              <a
+                href="#about"
+                className="font-sans text-sm text-white/80 hover:text-white transition-colors"
+              >
+                About
+              </a>
+              <a
+                href="#features"
+                className="font-sans text-sm text-white/80 hover:text-white transition-colors"
+              >
+                What&apos;s Inside
+              </a>
+              <a
+                href="#success-stories"
+                className="font-sans text-sm text-white/80 hover:text-white transition-colors"
+              >
+                Success Stories
+              </a>
+            </div>
+          )}
+
+          {/* CTA Buttons */}
+          <div className="flex items-center gap-3">
+            {!isQuizPage && (
+              <a
+                href="/quiz"
+                className="font-sans text-sm font-medium px-5 py-2 text-white border border-white hover:bg-white hover:text-black transition-all duration-300 rounded-full"
+              >
+                Take the Creator Quiz
+              </a>
+            )}
             <a
-              href="#why"
-              className="font-sans text-sm text-white/70 hover:text-white transition-colors"
+              href="https://www.skool.com/the-creator-conservatory-3365"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-sans text-sm font-medium px-5 py-2 transition-all duration-300 rounded-full bg-white text-black hover:bg-white/90"
             >
-              What Is Recess?
-            </a>
-            <a
-              href="#features"
-              className="font-sans text-sm text-white/70 hover:text-white transition-colors"
-            >
-              Features
-            </a>
-            <a
-              href="#for-you"
-              className="font-sans text-sm text-white/70 hover:text-white transition-colors"
-            >
-              For You
+              Join Free
             </a>
           </div>
-
-          {/* CTA */}
-          <a
-            href="https://www.skool.com/Recess/about"
-            className={`font-sans text-xs tracking-widest uppercase px-6 py-2 border transition-all duration-300 ${
-              isScrolled
-                ? "border-white/30 text-white hover:bg-white hover:text-black"
-                : "border-white/30 text-white hover:bg-white hover:text-black"
-            }`}
-          >
-            Join Recess
-          </a>
         </div>
       </div>
     </nav>
