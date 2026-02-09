@@ -10,7 +10,7 @@ interface Post {
   title: string;
   body: string;
   category: string;
-  tab: 'social' | 'content' | 'skool';
+  tab: 'social' | 'content' | 'skool' | 'general';
 }
 
 /* ──────────────────────────────────────────────
@@ -3453,9 +3453,2102 @@ const skoolPosts: Post[] = [
 ];
 
 /* ──────────────────────────────────────────────
+   GENERAL POSTS — Business & Entrepreneurship (100 posts)
+   General business advice, entrepreneurship, mindset, productivity, marketing
+   ────────────────────────────────────────────── */
+const generalPosts: Post[] = [
+  // ─── BUSINESS STRATEGY (25) ───
+  {
+    id: 4001, tab: 'general', category: 'Business Strategy',
+    title: 'The 80/20 Rule Will Transform Your Business',
+    body: `80% of your results come from 20% of your efforts.
+
+Most entrepreneurs work 12-hour days but focus on the wrong 20%.
+
+Here's how to find your high-impact activities:
+
+1. Track everything for one week
+2. Identify which tasks generate revenue
+3. Double down on what works
+4. Eliminate or delegate the rest
+
+Your business will grow faster working 6 focused hours than 12 scattered ones.`
+  },
+  {
+    id: 4002, tab: 'general', category: 'Business Strategy',
+    title: 'Stop Competing on Price, Start Competing on Value',
+    body: `Price wars are a race to the bottom.
+
+Value wars are a race to the top.
+
+How to compete on value:
+• Solve bigger problems
+• Deliver faster results
+• Provide exceptional experience
+• Build lasting relationships
+
+When you lead with value, price becomes secondary.
+
+Your customers will pay premium for premium value.`
+  },
+  {
+    id: 4003, tab: 'general', category: 'Business Strategy',
+    title: 'The MVP That Changed Everything',
+    body: `I spent 6 months building the "perfect" product.
+
+Nobody wanted it.
+
+Then I built an MVP in 2 weeks.
+It generated $10K in the first month.
+
+The lesson: Perfect is the enemy of profitable.
+
+Ship fast. Learn faster. Iterate fastest.
+
+Your market will tell you what they actually want.`
+  },
+  {
+    id: 4004, tab: 'general', category: 'Business Strategy',
+    title: 'Why Most Businesses Fail in Year Two',
+    body: `Year 1: Hustle and survival mode
+Year 2: The systems gap reveals itself
+
+Most entrepreneurs hit a wall because:
+• They built a job, not a business
+• Everything depends on them
+• No systems or processes
+• Can't scale without burnout
+
+The solution: Build systems before you need them.
+
+Document everything. Delegate systematically. Scale sustainably.`
+  },
+  {
+    id: 4005, tab: 'general', category: 'Business Strategy',
+    title: 'The One Question That Saved My Business',
+    body: `"What would this look like if it were easy?"
+
+I was overcomplicating everything:
+• Complex pricing models
+• 47 different service offerings
+• Confusing website
+• Overwhelming processes
+
+Then I simplified:
+• One clear offer
+• Simple pricing
+• Clear messaging
+• Streamlined process
+
+Revenue doubled. Stress halved.
+
+Complexity is the enemy of execution.`
+  },
+  {
+    id: 4006, tab: 'general', category: 'Business Strategy',
+    title: 'Your Business Model Determines Your Lifestyle',
+    body: `Want freedom? Design it into your business model.
+
+Time-for-money models:
+• Consulting
+• Freelancing
+• Service businesses
+
+Freedom models:
+• Software/SaaS
+• Digital products
+• Licensing/royalties
+• Investment income
+
+The choice is yours. Choose wisely.
+
+Your business model is your destiny.`
+  },
+  {
+    id: 4007, tab: 'general', category: 'Business Strategy',
+    title: 'The Customer You Should Fire',
+    body: `Not all customers are good customers.
+
+Red flags:
+• Always negotiating price
+• Demanding unreasonable timelines
+• Treating your team poorly
+• Constantly changing requirements
+• Paying late or not at all
+
+Fire them.
+
+One toxic customer can destroy:
+• Your profit margins
+• Team morale
+• Your reputation
+• Other opportunities
+
+Protect your business. Fire bad customers.`
+  },
+  {
+    id: 4008, tab: 'general', category: 'Business Strategy',
+    title: 'Revenue Streams vs Profit Streams',
+    body: `Most entrepreneurs chase revenue.
+Smart entrepreneurs optimize profit.
+
+High revenue, low profit:
+• Consulting with no leverage
+• High-touch service businesses
+• Competing on price alone
+
+High profit, sustainable revenue:
+• Software with recurring revenue
+• Digital products with high margins
+• Systematized service delivery
+
+Focus on profit per hour, not just total revenue.
+
+Profit pays the bills. Revenue is just vanity.`
+  },
+  {
+    id: 4009, tab: 'general', category: 'Business Strategy',
+    title: 'The Compound Effect in Business',
+    body: `Small improvements compound into massive results.
+
+1% better every day = 37x better in a year.
+
+Apply this to:
+• Customer experience
+• Product quality
+• Team efficiency
+• Marketing effectiveness
+• Financial management
+
+Most people overestimate what they can do in a year.
+They underestimate what they can do in 10 years.
+
+Consistency beats intensity.`
+  },
+  {
+    id: 4010, tab: 'general', category: 'Business Strategy',
+    title: 'Why Niches Make Riches',
+    body: `"I help everyone" helps no one.
+
+The riches are in the niches because:
+• You can charge premium prices
+• Word-of-mouth spreads faster
+• You become THE expert
+• Marketing becomes easier
+• Competition decreases
+
+Better to be #1 in a small pond than #100 in the ocean.
+
+Pick your niche. Own your niche. Dominate your niche.`
+  },
+  {
+    id: 4011, tab: 'general', category: 'Business Strategy',
+    title: 'The Hidden Cost of Saying Yes',
+    body: `Every yes is a no to something else.
+
+When you say yes to:
+• Low-paying client work
+• Energy-draining projects
+• Non-strategic partnerships
+
+You say no to:
+• High-value opportunities
+• Strategic growth initiatives
+• Time with family
+
+Opportunity cost is real.
+
+Guard your yes. Make it expensive.`
+  },
+  {
+    id: 4012, tab: 'general', category: 'Business Strategy',
+    title: 'Cash Flow Is King',
+    body: `Profitable on paper, broke in reality.
+
+Many businesses fail with full order books because:
+• 90-day payment terms
+• Seasonal revenue patterns
+• Large upfront expenses
+• Poor cash flow management
+
+Solutions:
+• Request deposits
+• Invoice immediately
+• Offer payment incentives
+• Maintain cash reserves
+• Factor or invoice financing
+
+Profit is opinion. Cash flow is fact.`
+  },
+  {
+    id: 4013, tab: 'general', category: 'Business Strategy',
+    title: 'The Scalability Test',
+    body: `Ask yourself: "If I 10x'd my business tomorrow, what would break?"
+
+Common breaking points:
+• You're the bottleneck
+• Manual processes everywhere
+• No documented systems
+• Overwhelmed team
+• Poor technology infrastructure
+
+Fix these before you scale.
+
+It's easier to strengthen the foundation than rebuild the house.`
+  },
+  {
+    id: 4014, tab: 'general', category: 'Business Strategy',
+    title: 'Why Recurring Revenue Rules',
+    body: `One-time sales: Start from zero every month
+Recurring revenue: Build on last month's base
+
+Benefits of recurring revenue:
+• Predictable cash flow
+• Higher business valuation
+• Compound growth
+• Customer lifetime value
+• Easier planning and hiring
+
+Even service businesses can create recurring revenue:
+• Monthly retainers
+• Subscription models
+• Maintenance contracts
+• Ongoing support plans
+
+Turn transactions into relationships.`
+  },
+  {
+    id: 4015, tab: 'general', category: 'Business Strategy',
+    title: 'The Pivot That Saved Everything',
+    body: `Original idea: Complex enterprise software
+Reality: Nobody understood it
+
+The pivot: Simple tool for small businesses
+Result: $1M ARR in 18 months
+
+Sometimes the best strategy is changing strategies.
+
+Signs it's time to pivot:
+• Customers don't understand your value
+• Sales cycles are impossibly long
+• You're constantly explaining what you do
+• Market feedback is consistently negative
+
+Don't fall in love with your first idea. Fall in love with solving problems.`
+  },
+  {
+    id: 4016, tab: 'general', category: 'Business Strategy',
+    title: 'The Power of Strategic Partnerships',
+    body: `The fastest way to grow isn't always organic.
+
+Strategic partnerships can:
+• Double your addressable market
+• Reduce customer acquisition costs
+• Add complementary capabilities
+• Share development expenses
+• Accelerate market entry
+
+Find businesses that serve your customers but don't compete with you.
+
+1 + 1 = 3 when done right.`
+  },
+  {
+    id: 4017, tab: 'general', category: 'Business Strategy',
+    title: 'The Subscription Economy Advantage',
+    body: `We've moved from ownership to access.
+
+Why subscriptions win:
+• Lower barrier to entry for customers
+• Predictable revenue for businesses
+• Continuous value delivery
+• Built-in retention model
+• Scalable growth patterns
+
+Even physical products can be subscriptionized:
+• Replenishment models
+• Upgrade programs
+• Service plans
+• Community access
+
+Think access, not ownership.`
+  },
+  {
+    id: 4018, tab: 'general', category: 'Business Strategy',
+    title: 'The Network Effect Gold Mine',
+    body: `The most valuable businesses get better as more people use them.
+
+Examples:
+• Social networks (more users = more value)
+• Marketplaces (more buyers attract more sellers)
+• Platforms (more developers create more value)
+
+How to build network effects:
+• Connect users to each other
+• Create value from user contributions
+• Make leaving costly (data, connections, history)
+
+Winner-take-all markets reward network effects.`
+  },
+  {
+    id: 4019, tab: 'general', category: 'Business Strategy',
+    title: 'Why Freemium Beats Free Trials',
+    body: `Free trials have deadlines. Freemium has patience.
+
+Freemium advantages:
+• Users become comfortable with your product
+• No pressure to upgrade immediately
+• Word-of-mouth marketing from free users
+• Data collection from larger user base
+• Natural upgrade path when needs grow
+
+The key: Make the free version valuable but limited.
+
+Give them a taste, then make them hungry for more.`
+  },
+  {
+    id: 4020, tab: 'general', category: 'Business Strategy',
+    title: 'The Geographic Arbitrage Opportunity',
+    body: `Sell to expensive markets. Build in affordable ones.
+
+The math:
+• US/EU pricing
+• Remote team in lower-cost regions
+• 3-5x profit margin increase
+
+This works for:
+• Software development
+• Design services
+• Content creation
+• Customer support
+• Data processing
+
+Global talent. Local pricing.
+
+The internet made this possible. Are you using it?`
+  },
+  {
+    id: 4021, tab: 'general', category: 'Business Strategy',
+    title: 'The Platform vs Product Decision',
+    body: `Should you build a platform or a product?
+
+Product (focused):
+• Easier to build
+• Faster to market
+• Clearer value proposition
+• Lower complexity
+
+Platform (broad):
+• Higher barrier to entry
+• Network effects possible
+• Multiple revenue streams
+• Winner-take-all potential
+
+Most successful platforms started as focused products.
+
+Start focused. Expand strategically.`
+  },
+  {
+    id: 4022, tab: 'general', category: 'Business Strategy',
+    title: 'The Vertical Integration Opportunity',
+    body: `Sometimes the best move is owning more of the value chain.
+
+When to integrate vertically:
+• High supplier costs or poor quality
+• Critical dependency risk
+• Unique competitive advantage
+• Margin improvement opportunity
+
+Examples:
+• Amazon Web Services (infrastructure)
+• Tesla (batteries, chips, software)
+• Netflix (original content)
+
+Control your destiny. Own your stack.`
+  },
+  {
+    id: 4023, tab: 'general', category: 'Business Strategy',
+    title: 'The Data Moat Strategy',
+    body: `Data becomes more valuable over time.
+
+How to build a data moat:
+• Collect unique user behavior data
+• Build proprietary algorithms
+• Create personalized experiences
+• Improve with scale
+• Make switching costly
+
+The more data you have, the better your product becomes.
+The better your product, the more users you attract.
+More users = more data.
+
+This is how you build an unassailable competitive advantage.`
+  },
+  {
+    id: 4024, tab: 'general', category: 'Business Strategy',
+    title: 'The Exit Strategy Mindset',
+    body: `Build your business like you're going to sell it someday.
+
+Even if you never do.
+
+This forces you to:
+• Document all processes
+• Build strong teams
+• Create systems-dependent operations
+• Track key metrics
+• Reduce owner dependency
+
+Sellable businesses are also scalable businesses.
+
+Build to sell. Choose to keep.`
+  },
+  {
+    id: 4025, tab: 'general', category: 'Business Strategy',
+    title: 'The Blue Ocean Opportunity',
+    body: `Don't compete in red oceans full of sharks.
+
+Create blue oceans with no competition.
+
+How to find blue oceans:
+• Combine features from different industries
+• Serve overlooked customer segments
+• Solve problems people accept as "normal"
+• Create new categories entirely
+
+Competition is for losers.
+
+Innovation is for winners.`
+  },
+
+  // ─── MARKETING & SALES (25) ───
+  {
+    id: 4026, tab: 'general', category: 'Marketing & Sales',
+    title: 'The Only Sales Script You Need',
+    body: `Stop talking. Start listening.
+
+The best sales script:
+1. Ask about their problems
+2. Listen to their answers
+3. Ask follow-up questions
+4. Present your solution
+5. Ask for the sale
+
+People buy solutions to their problems.
+They don't buy your product features.
+
+Solve problems. Sales follow.`
+  },
+  {
+    id: 4027, tab: 'general', category: 'Marketing & Sales',
+    title: 'Why Content Marketing Beats Paid Ads',
+    body: `Paid ads stop working when you stop paying.
+Content keeps working forever.
+
+Content marketing benefits:
+• Builds trust and authority
+• Compounds over time
+• Lower long-term costs
+• Educational value
+• Search engine visibility
+
+One great piece of content can generate leads for years.
+
+Play the long game. Create valuable content.`
+  },
+  {
+    id: 4028, tab: 'general', category: 'Marketing & Sales',
+    title: 'The Customer Journey Map That Converts',
+    body: `Map every touchpoint from awareness to advocacy.
+
+Awareness → Interest → Consideration → Purchase → Retention → Advocacy
+
+Optimize each stage:
+• Awareness: Content marketing, SEO, social media
+• Interest: Lead magnets, email sequences
+• Consideration: Case studies, demos, trials
+• Purchase: Simple checkout, trust signals
+• Retention: Onboarding, support, value delivery
+• Advocacy: Referral programs, testimonials
+
+Don't leave conversions to chance.`
+  },
+  {
+    id: 4029, tab: 'general', category: 'Marketing & Sales',
+    title: 'The Email List That Pays the Bills',
+    body: `Social media followers are rented.
+Email subscribers are owned.
+
+Build your email list by offering:
+• Valuable free resources
+• Exclusive insights
+• Early access to products
+• Member-only content
+
+Then nurture with:
+• Consistent value delivery
+• Personal stories
+• Behind-the-scenes content
+• Strategic product mentions
+
+Your email list is your most valuable asset.`
+  },
+  {
+    id: 4030, tab: 'general', category: 'Marketing & Sales',
+    title: 'Why Features Tell, Benefits Sell',
+    body: `Features: What your product does
+Benefits: What your product does for them
+
+Example:
+Feature: "256-bit encryption"
+Benefit: "Your data is 100% secure"
+
+Feature: "Cloud-based software"
+Benefit: "Access your files from anywhere"
+
+Customers don't care about features.
+They care about outcomes.
+
+Sell outcomes, not features.`
+  },
+  {
+    id: 4031, tab: 'general', category: 'Marketing & Sales',
+    title: 'The Objection Handling Framework',
+    body: `Every objection is a request for more information.
+
+The AIDA framework:
+• Acknowledge their concern
+• Isolate the objection
+• Demonstrate the solution
+• Ask for commitment
+
+Common objections and responses:
+• "Too expensive" → Focus on ROI/value
+• "Need to think about it" → Create urgency
+• "Not the right time" → Identify the trigger
+• "Need approval" → Include decision makers
+
+Objections are buying signals in disguise.`
+  },
+  {
+    id: 4032, tab: 'general', category: 'Marketing & Sales',
+    title: 'The Referral System That Scales',
+    body: `Happy customers are your best sales team.
+
+Make referrals easy:
+• Create a formal referral program
+• Offer meaningful incentives
+• Provide referral tools and scripts
+• Track and reward referrers
+• Follow up on referrals quickly
+
+The best referral programs:
+• Benefit both parties
+• Are easy to explain
+• Have immediate rewards
+• Create viral loops
+
+Turn customers into advocates.`
+  },
+  {
+    id: 4033, tab: 'general', category: 'Marketing & Sales',
+    title: 'The Social Proof That Converts',
+    body: `People follow people. Use social proof everywhere.
+
+Types of social proof:
+• Customer testimonials
+• Case studies with results
+• User-generated content
+• Media mentions
+• Customer logos
+• Usage statistics
+• Expert endorsements
+
+Where to place social proof:
+• Landing pages
+• Sales pages
+• Checkout process
+• Email signatures
+• Social media profiles
+
+Let your customers sell for you.`
+  },
+  {
+    id: 4034, tab: 'general', category: 'Marketing & Sales',
+    title: 'The Pricing Strategy That Maximizes Profit',
+    body: `Price based on value, not cost.
+
+Value-based pricing:
+• Identify the problem you solve
+• Quantify the impact
+• Price a fraction of the value created
+
+Pricing psychology:
+• Anchor high, then discount
+• Use charm pricing ($99 vs $100)
+• Offer multiple options
+• Bundle complementary products
+
+Test your pricing. Most people under-price.
+
+Charge what you're worth.`
+  },
+  {
+    id: 4035, tab: 'general', category: 'Marketing & Sales',
+    title: 'The Landing Page That Converts',
+    body: `Your landing page has one job: Convert visitors into customers.
+
+Essential elements:
+• Clear value proposition (above the fold)
+• Compelling headline
+• Benefits over features
+• Social proof
+• Clear call-to-action
+• Remove distractions
+• Mobile optimization
+
+Test everything:
+• Headlines
+• Button colors
+• Form length
+• Images
+• Copy
+
+Small changes, big results.`
+  },
+  {
+    id: 4036, tab: 'general', category: 'Marketing & Sales',
+    title: 'The Follow-Up Sequence That Closes',
+    body: `80% of sales happen after the 5th follow-up.
+Most salespeople stop after the 2nd.
+
+Effective follow-up sequence:
+1. Immediate response (within 5 minutes)
+2. Value-added follow-up (24 hours)
+3. Case study/social proof (3 days)
+4. Urgency/scarcity (1 week)
+5. Break-up email (2 weeks)
+
+Each follow-up should add value.
+No one likes pushy sales people.
+
+Persistence pays. Value wins.`
+  },
+  {
+    id: 4037, tab: 'general', category: 'Marketing & Sales',
+    title: 'The Webinar Formula That Sells',
+    body: `Webinars combine education with selling.
+
+The perfect webinar structure:
+• Hook (first 2 minutes)
+• Story (10 minutes)
+• Content (30 minutes)
+• Pitch (15 minutes)
+• Close (3 minutes)
+
+Key success factors:
+• Solve a real problem
+• Provide actionable value
+• Use stories and examples
+• Create urgency
+• Have a clear offer
+
+Educate first. Sell second.`
+  },
+  {
+    id: 4038, tab: 'general', category: 'Marketing & Sales',
+    title: 'The Upsell Strategy That Doubles Revenue',
+    body: `It's 7x easier to sell to existing customers than acquire new ones.
+
+Effective upselling:
+• Timing matters (right after purchase)
+• Make it relevant to their purchase
+• Show additional value
+• Create bundle deals
+• Use scarcity/urgency
+
+Cross-selling opportunities:
+• Complementary products
+• Premium versions
+• Extended warranties
+• Training/support packages
+
+Your best customers want to buy more.`
+  },
+  {
+    id: 4039, tab: 'general', category: 'Marketing & Sales',
+    title: 'The Sales Funnel That Never Leaks',
+    body: `Most sales funnels leak customers at every stage.
+
+Plug the leaks:
+• Top of funnel: Create compelling lead magnets
+• Middle of funnel: Nurture with valuable content
+• Bottom of funnel: Remove purchase friction
+• Post-purchase: Deliver exceptional onboarding
+
+Measure everything:
+• Traffic sources
+• Conversion rates
+• Customer lifetime value
+• Churn rates
+
+Optimize the bottlenecks first.`
+  },
+  {
+    id: 4040, tab: 'general', category: 'Marketing & Sales',
+    title: 'The Personal Brand That Sells',
+    body: `People buy from people, not companies.
+
+Build your personal brand:
+• Share your expertise consistently
+• Tell your story authentically
+• Engage with your audience
+• Provide value without asking
+• Be consistent across platforms
+
+Your personal brand is your unfair advantage.
+
+Competitors can copy your product.
+They can't copy you.`
+  },
+  {
+    id: 4041, tab: 'general', category: 'Marketing & Sales',
+    title: 'The Video Marketing Strategy That Works',
+    body: `Video is the highest-converting content format.
+
+Types of videos that sell:
+• Explainer videos (how it works)
+• Testimonial videos (social proof)
+• Demo videos (seeing is believing)
+• Behind-the-scenes (builds trust)
+• Educational content (provides value)
+
+Video best practices:
+• Hook viewers in first 3 seconds
+• Include captions (80% watch without sound)
+• Keep it short and focused
+• End with clear call-to-action
+
+Show don't tell.`
+  },
+  {
+    id: 4042, tab: 'general', category: 'Marketing & Sales',
+    title: 'The SEO Strategy That Actually Works',
+    body: `SEO isn't about gaming Google.
+It's about serving your audience.
+
+Focus on:
+• Creating valuable content
+• Targeting long-tail keywords
+• Building authoritative backlinks
+• Optimizing page speed
+• Mobile-first design
+
+The best SEO strategy:
+1. Find what your audience searches for
+2. Create the best answer
+3. Make it easy to find and read
+4. Promote it strategically
+
+Quality content wins. Always.`
+  },
+  {
+    id: 4043, tab: 'general', category: 'Marketing & Sales',
+    title: 'The Conversion Rate Optimization Playbook',
+    body: `Doubling your conversion rate doubles your revenue.
+
+High-impact tests:
+• Headlines (biggest impact)
+• Call-to-action buttons
+• Form length and fields
+• Value proposition clarity
+• Social proof placement
+• Page load speed
+• Mobile experience
+
+Test one element at a time.
+Let data guide decisions.
+
+Small improvements compound.`
+  },
+  {
+    id: 4044, tab: 'general', category: 'Marketing & Sales',
+    title: 'The Retargeting Campaign That Converts',
+    body: `97% of first-time visitors leave without buying.
+Retargeting brings them back.
+
+Effective retargeting:
+• Segment by behavior
+• Customize messaging by stage
+• Use dynamic product ads
+• Set frequency caps
+• Create compelling offers
+• Test different creative
+
+Retargeting campaigns often have:
+• Lower cost per click
+• Higher conversion rates
+• Better ROI than cold traffic
+
+Stay top of mind.`
+  },
+  {
+    id: 4045, tab: 'general', category: 'Marketing & Sales',
+    title: 'The Influencer Partnership That Pays',
+    body: `Influencer marketing isn't just for B2C.
+
+Find the right influencers:
+• Relevant audience overlap
+• High engagement rates
+• Authentic voice
+• Professional approach
+• Reasonable rates
+
+Partnership types:
+• Sponsored posts
+• Product collaborations
+• Affiliate partnerships
+• Brand ambassadorships
+• Content takeovers
+
+Authenticity beats reach.`
+  },
+  {
+    id: 4046, tab: 'general', category: 'Marketing & Sales',
+    title: 'The Chat Marketing Revolution',
+    body: `Email open rates: 20%
+Text message open rates: 98%
+
+Use chat marketing for:
+• Customer support
+• Sales qualification
+• Order updates
+• Abandoned cart recovery
+• Appointment scheduling
+
+Best practices:
+• Respect opt-in preferences
+• Provide immediate value
+• Keep messages short
+• Personalize when possible
+• Have human backup
+
+Meet customers where they are.`
+  },
+  {
+    id: 4047, tab: 'general', category: 'Marketing & Sales',
+    title: 'The Community-Driven Sales Strategy',
+    body: `Build a community. Sales will follow.
+
+Community benefits:
+• Higher customer lifetime value
+• Organic word-of-mouth marketing
+• Direct customer feedback
+• Content creation from members
+• Reduced customer support costs
+
+How to build community:
+• Choose the right platform
+• Establish clear guidelines
+• Provide consistent value
+• Encourage member interaction
+• Recognize active contributors
+
+Community members become customers.`
+  },
+  {
+    id: 4048, tab: 'general', category: 'Marketing & Sales',
+    title: 'The Attribution Model That Matters',
+    body: `Last-click attribution lies.
+
+Customer journeys are complex:
+• Multiple touchpoints
+• Various devices
+• Long consideration periods
+• Offline interactions
+
+Better attribution models:
+• First-touch (awareness credit)
+• Multi-touch (spread credit)
+• Time-decay (recent gets more)
+• Data-driven (algorithm decides)
+
+Understand the full journey.
+Optimize all touchpoints.`
+  },
+  {
+    id: 4049, tab: 'general', category: 'Marketing & Sales',
+    title: 'The Customer Lifetime Value Formula',
+    body: `CLV = Average Order Value × Purchase Frequency × Customer Lifespan
+
+Why CLV matters:
+• Determines ad spend limits
+• Guides pricing strategy
+• Identifies best customers
+• Predicts business growth
+
+Increase CLV by:
+• Improving product quality
+• Enhancing customer experience
+• Creating loyalty programs
+• Developing complementary products
+• Reducing churn
+
+Focus on lifetime value, not just acquisition.`
+  },
+  {
+    id: 4050, tab: 'general', category: 'Marketing & Sales',
+    title: 'The Word-of-Mouth Strategy That Scales',
+    body: `The best marketing doesn't feel like marketing.
+
+Create remarkable experiences:
+• Exceed expectations consistently
+• Solve problems proactively
+• Surprise with unexpected value
+• Make sharing easy and rewarding
+• Ask for referrals at peak satisfaction
+
+Word-of-mouth accelerators:
+• Referral programs
+• User-generated content campaigns
+• Customer success stories
+• Community building
+• Viral product features
+
+Make customers your marketing team.`
+  },
+
+  // ─── MINDSET & PRODUCTIVITY (25) ───
+  {
+    id: 4051, tab: 'general', category: 'Mindset & Productivity',
+    title: 'The Morning Routine That Changed Everything',
+    body: `How you start your day determines how you live your life.
+
+My morning routine:
+• 5:00 AM - Wake up (no snooze)
+• 5:05 AM - Drink water and take vitamins
+• 5:15 AM - Meditate for 10 minutes
+• 5:30 AM - Exercise for 30 minutes
+• 6:00 AM - Journal for 10 minutes
+• 6:15 AM - Read for 30 minutes
+• 6:45 AM - Plan the day
+
+This routine sets the tone for everything that follows.
+
+Start strong. Stay strong.`
+  },
+  {
+    id: 4052, tab: 'general', category: 'Mindset & Productivity',
+    title: 'Why Most People Fail at Goal Setting',
+    body: `Most goals are wishes in disguise.
+
+They fail because they're:
+• Vague and unclear
+• Not written down
+• Missing deadlines
+• Lack specific actions
+• No accountability system
+
+Better goal framework (SMART):
+• Specific: Exactly what will be accomplished
+• Measurable: How you'll track progress
+• Achievable: Realistic given your resources
+• Relevant: Aligned with your values
+• Time-bound: Clear deadline
+
+Goals without systems are wishes.`
+  },
+  {
+    id: 4053, tab: 'general', category: 'Mindset & Productivity',
+    title: 'The Power of Compound Habits',
+    body: `Small habits compound into extraordinary results.
+
+1% better every day = 37x better in a year
+1% worse every day = Nearly zero in a year
+
+Examples of compound habits:
+• Reading 20 pages daily = 30+ books per year
+• Writing 500 words daily = 182,500 words per year
+• Saving $5 daily = $1,825 per year
+• Walking 10,000 steps daily = Better health
+
+Consistency beats perfection.
+
+Start small. Stay consistent.`
+  },
+  {
+    id: 4054, tab: 'general', category: 'Mindset & Productivity',
+    title: 'The Focus Framework That Works',
+    body: `Deep work is becoming a superpower.
+
+The Focus Framework:
+• Single-tasking only
+• Time-blocked calendar
+• Eliminate distractions
+• Energy management
+• Recovery periods
+
+Distraction killers:
+• Phone in another room
+• Notification off
+• Clean workspace
+• Clear objectives
+• Accountability partner
+
+Quality of attention determines quality of life.`
+  },
+  {
+    id: 4055, tab: 'general', category: 'Mindset & Productivity',
+    title: 'Why Time Management Is Dead',
+    body: `You can't manage time. You can only manage energy.
+
+Energy management beats time management:
+• High energy + Limited time = High output
+• Low energy + Unlimited time = Low output
+
+Protect your energy:
+• Sleep 7-9 hours nightly
+• Exercise regularly
+• Eat nutrient-dense foods
+• Take breaks every 90 minutes
+• Say no to energy vampires
+
+Manage your energy. Time will follow.`
+  },
+  {
+    id: 4056, tab: 'general', category: 'Mindset & Productivity',
+    title: 'The Decision Fatigue Solution',
+    body: `You make 35,000 decisions per day.
+Each one depletes your willpower.
+
+Reduce decision fatigue:
+• Automate routine choices
+• Create standard operating procedures
+• Use decision-making frameworks
+• Eliminate unnecessary options
+• Make important decisions when fresh
+
+Examples:
+• Same breakfast every day
+• Uniform work clothing
+• Standard meeting agendas
+• Automated bill payments
+
+Save mental energy for what matters.`
+  },
+  {
+    id: 4057, tab: 'general', category: 'Mindset & Productivity',
+    title: 'The Growth vs Fixed Mindset Advantage',
+    body: `Your mindset determines your potential.
+
+Fixed mindset believes:
+• Talent is static
+• Failure is permanent
+• Effort is a sign of weakness
+• Criticism is personal
+
+Growth mindset believes:
+• Skills can be developed
+• Failure is learning
+• Effort creates ability
+• Criticism is feedback
+
+Develop a growth mindset:
+• Embrace challenges
+• Learn from criticism
+• Find inspiration in others' success
+
+Your potential is unlimited with the right mindset.`
+  },
+  {
+    id: 4058, tab: 'general', category: 'Mindset & Productivity',
+    title: 'The Pomodoro Technique 2.0',
+    body: `The classic Pomodoro: 25 minutes work, 5 minutes break.
+
+My enhanced version:
+• 50 minutes deep work
+• 10 minutes recovery
+• Track energy levels
+• Adjust based on task complexity
+• Longer breaks after 4 cycles
+
+Pro tips:
+• Choose one task per session
+• Turn off all notifications
+• Use a physical timer
+• Track completion rates
+• Reward yourself for consistency
+
+Time boxing creates urgency and focus.`
+  },
+  {
+    id: 4059, tab: 'general', category: 'Mindset & Productivity',
+    title: 'The Email System That Saves Hours',
+    body: `Email is the biggest productivity killer.
+
+The 2-minute rule:
+• If it takes <2 minutes, do it now
+• If it takes >2 minutes, schedule it
+
+Email batching:
+• Check 2-3 times per day maximum
+• Process all emails at once
+• Use templates for common responses
+• Unsubscribe ruthlessly
+• Use folders and filters
+
+Turn off email notifications.
+Don't let email control your day.`
+  },
+  {
+    id: 4060, tab: 'general', category: 'Mindset & Productivity',
+    title: 'The Delegation Framework That Scales',
+    body: `You can't do everything. You shouldn't try.
+
+What to delegate:
+• Tasks below your pay grade
+• Repetitive processes
+• Time-consuming activities
+• Tasks others do better
+
+How to delegate effectively:
+• Clear expectations
+• Deadlines and checkpoints
+• Necessary resources
+• Authority levels
+• Quality standards
+
+Start with small tasks.
+Build trust gradually.
+
+Delegation multiplies your impact.`
+  },
+  {
+    id: 4061, tab: 'general', category: 'Mindset & Productivity',
+    title: 'The Procrastination Cure',
+    body: `Procrastination isn't laziness. It's fear.
+
+Fear of:
+• Failure
+• Success
+• Judgment
+• Perfectionism
+• Overwhelm
+
+The cure:
+• Break tasks into smaller pieces
+• Set artificial deadlines
+• Use accountability partners
+• Start with the easiest part
+• Focus on progress, not perfection
+
+Action beats anxiety.
+
+Start before you feel ready.`
+  },
+  {
+    id: 4062, tab: 'general', category: 'Mindset & Productivity',
+    title: 'The Digital Minimalism Movement',
+    body: `Technology should serve you, not distract you.
+
+Digital decluttering:
+• Uninstall unused apps
+• Turn off non-essential notifications
+• Use grayscale mode
+• Implement phone-free zones
+• Schedule specific social media times
+
+Benefits:
+• Improved focus
+• Better sleep
+• More present in relationships
+• Reduced anxiety
+• Increased productivity
+
+Your attention is your most valuable asset. Protect it.`
+  },
+  {
+    id: 4063, tab: 'general', category: 'Mindset & Productivity',
+    title: 'The Learning System That Sticks',
+    body: `Most learning is forgotten within 24 hours.
+
+The retention system:
+• Spaced repetition
+• Active recall
+• Teaching others
+• Practical application
+• Regular review
+
+Learning techniques:
+• Take notes by hand
+• Summarize in your own words
+• Create mental models
+• Practice deliberately
+• Seek feedback
+
+Knowledge without application is useless.
+
+Learn. Apply. Teach.`
+  },
+  {
+    id: 4064, tab: 'general', category: 'Mindset & Productivity',
+    title: 'The Stress Management Toolkit',
+    body: `Stress is inevitable. Suffering is optional.
+
+Stress management strategies:
+• Deep breathing exercises
+• Regular physical exercise
+• Meditation and mindfulness
+• Time in nature
+• Strong support network
+• Adequate sleep
+• Healthy boundaries
+
+Quick stress busters:
+• 4-7-8 breathing technique
+• Progressive muscle relaxation
+• Cold shower
+• Music therapy
+• Gratitude practice
+
+Manage stress before it manages you.`
+  },
+  {
+    id: 4065, tab: 'general', category: 'Mindset & Productivity',
+    title: 'The Confidence Building System',
+    body: `Confidence isn't born. It's built.
+
+Build confidence through:
+• Small wins accumulation
+• Skills development
+• Preparation and practice
+• Positive self-talk
+• Physical fitness
+• Accomplishment tracking
+
+Confidence killers:
+• Comparison to others
+• Perfectionism
+• Negative self-talk
+• Fear of failure
+• Lack of preparation
+
+Confidence comes from competence.
+
+Get better. Feel better.`
+  },
+  {
+    id: 4066, tab: 'general', category: 'Mindset & Productivity',
+    title: 'The Networking Strategy That Works',
+    body: `Networking isn't about collecting contacts.
+It's about planting seeds.
+
+Effective networking:
+• Give before you receive
+• Focus on relationships, not transactions
+• Follow up consistently
+• Add genuine value
+• Be authentically interested
+
+Best places to network:
+• Industry conferences
+• Professional associations
+• Alumni events
+• Volunteer organizations
+• Online communities
+
+Your network is your net worth.
+
+Invest in relationships.`
+  },
+  {
+    id: 4067, tab: 'general', category: 'Mindset & Productivity',
+    title: 'The Feedback Loop That Accelerates Growth',
+    body: `Fast feedback = Fast improvement.
+
+Create feedback loops:
+• Daily reflection sessions
+• Weekly review meetings
+• Monthly goal assessments
+• Quarterly strategic reviews
+• Annual vision alignment
+
+Seek feedback from:
+• Customers and clients
+• Mentors and advisors
+• Peers and colleagues
+• Direct reports
+• Industry experts
+
+Act on feedback quickly.
+
+Feedback is the breakfast of champions.`
+  },
+  {
+    id: 4068, tab: 'general', category: 'Mindset & Productivity',
+    title: 'The Resilience Building Framework',
+    body: `Resilience isn't about being tough.
+It's about bouncing back.
+
+Build resilience through:
+• Strong support systems
+• Optimistic thinking patterns
+• Problem-solving skills
+• Emotional regulation
+• Physical health
+• Purpose and meaning
+
+Resilience practices:
+• Daily gratitude
+• Stress inoculation training
+• Cognitive reframing
+• Mindfulness meditation
+• Regular exercise
+
+Resilience is a skill. Practice it daily.`
+  },
+  {
+    id: 4069, tab: 'general', category: 'Mindset & Productivity',
+    title: 'The Motivation vs Discipline Truth',
+    body: `Motivation gets you started.
+Discipline keeps you going.
+
+Motivation is:
+• Unreliable
+• Emotion-based
+• Temporary
+• External
+
+Discipline is:
+• Consistent
+• Habit-based
+• Permanent
+• Internal
+
+Build discipline:
+• Start small
+• Be consistent
+• Track progress
+• Remove friction
+• Celebrate wins
+
+Don't wait for motivation. Build discipline.`
+  },
+  {
+    id: 4070, tab: 'general', category: 'Mindset & Productivity',
+    title: 'The Mental Model Collection',
+    body: `Mental models are thinking tools.
+
+Powerful mental models:
+• First principles thinking
+• Inversion (thinking backwards)
+• Systems thinking
+• Opportunity cost
+• Pareto principle (80/20 rule)
+• Circle of competence
+• Compound interest
+
+How to use mental models:
+• Learn the concept
+• Practice applying it
+• Combine multiple models
+• Question your assumptions
+
+Better thinking = Better decisions.
+
+Collect mental models like tools.`
+  },
+  {
+    id: 4071, tab: 'general', category: 'Mindset & Productivity',
+    title: 'The Energy Audit Exercise',
+    body: `Track your energy like you track your money.
+
+Energy audit questions:
+• What activities give me energy?
+• What activities drain my energy?
+• What time of day am I most productive?
+• What environments optimize my energy?
+• What people energize or drain me?
+
+Energy optimization:
+• Schedule important work during peak hours
+• Batch similar tasks together
+• Eliminate energy vampires
+• Take regular breaks
+• Invest in energy-giving activities
+
+Protect your energy like your life depends on it.
+
+Because it does.`
+  },
+  {
+    id: 4072, tab: 'general', category: 'Mindset & Productivity',
+    title: 'The Systems Thinking Advantage',
+    body: `Most people focus on events.
+Smart people focus on systems.
+
+Systems thinking:
+• Identifies root causes
+• Prevents problem recurrence
+• Creates sustainable solutions
+• Builds competitive advantages
+• Enables scalable growth
+
+Questions to ask:
+• What patterns do I see?
+• What are the underlying structures?
+• Where are the leverage points?
+• What are the unintended consequences?
+• How does this connect to other systems?
+
+Fix the system. Fix the problem forever.`
+  },
+  {
+    id: 4073, tab: 'general', category: 'Mindset & Productivity',
+    title: 'The Decision-Making Matrix',
+    body: `Not all decisions are created equal.
+
+Decision matrix:
+• High impact + High urgency = Do now
+• High impact + Low urgency = Schedule
+• Low impact + High urgency = Delegate
+• Low impact + Low urgency = Eliminate
+
+Decision factors to consider:
+• Reversibility (can you undo it?)
+• Impact magnitude
+• Time sensitivity
+• Resource requirements
+• Risk level
+
+Spend time on decisions proportional to their importance.`
+  },
+  {
+    id: 4074, tab: 'general', category: 'Mindset & Productivity',
+    title: 'The Continuous Improvement Philosophy',
+    body: `Get 1% better every day.
+
+Continuous improvement principles:
+• Small, incremental changes
+• Consistent application
+• Regular measurement
+• Root cause analysis
+• Employee involvement
+• Customer focus
+
+Kaizen approach:
+• Identify improvement opportunities
+• Plan small experiments
+• Implement changes
+• Study results
+• Act on learnings
+
+Excellence is not a destination. It's a journey.
+
+Improve relentlessly.`
+  },
+  {
+    id: 4075, tab: 'general', category: 'Mindset & Productivity',
+    title: 'The Work-Life Integration Strategy',
+    body: `Work-life balance is a myth.
+Work-life integration is reality.
+
+Integration strategies:
+• Flexible work arrangements
+• Boundary management
+• Priority alignment
+• Energy optimization
+• Technology leverage
+• Support system building
+
+Key principles:
+• Be present wherever you are
+• Align work with personal values
+• Communicate boundaries clearly
+• Take care of your health
+• Invest in relationships
+
+Integration > Balance.
+
+Design a life that works.`
+  },
+
+  // ─── LEADERSHIP & TEAM BUILDING (25) ───
+  {
+    id: 4076, tab: 'general', category: 'Leadership & Team Building',
+    title: 'The Leadership Paradox',
+    body: `The best leaders serve their teams, not the other way around.
+
+Servant leadership principles:
+• Put team needs first
+• Develop others' potential
+• Create psychologically safe environments
+• Lead by example
+• Make decisions for collective good
+
+How to serve your team:
+• Remove obstacles
+• Provide resources and support
+• Recognize achievements
+• Invest in development
+• Listen actively
+
+Power is given to you by your team.
+Use it to serve them.`
+  },
+  {
+    id: 4077, tab: 'general', category: 'Leadership & Team Building',
+    title: 'The High-Performance Team Formula',
+    body: `Great teams aren't born. They're built.
+
+High-performance team characteristics:
+• Clear, shared goals
+• Complementary skills
+• Mutual accountability
+• Effective communication
+• Trust and respect
+
+Team building blocks:
+• Define roles clearly
+• Establish communication norms
+• Create feedback loops
+• Celebrate wins together
+• Learn from failures
+
+Focus on team success over individual glory.
+
+Teams win championships. Not individuals.`
+  },
+  {
+    id: 4078, tab: 'general', category: 'Leadership & Team Building',
+    title: 'The Difficult Conversation Framework',
+    body: `Difficult conversations avoided become bigger problems.
+
+PREPARE framework:
+• Purpose: Why this conversation matters
+• Respect: Maintain dignity for all
+• Empathy: Understand their perspective
+• Persistence: Stay focused on resolution
+• Acknowledgment: Recognize their feelings
+• Responsibility: Own your part
+• Encouragement: End with positive action
+
+Keys to success:
+• Choose the right time and place
+• Focus on behavior, not personality
+• Use "I" statements
+• Listen more than you speak
+
+Courage in conversations creates breakthrough.`
+  },
+  {
+    id: 4079, tab: 'general', category: 'Leadership & Team Building',
+    title: 'The Delegation Mastery Method',
+    body: `Delegation isn't dumping. It's developing.
+
+What to delegate:
+• Tasks below your skill level
+• Development opportunities for others
+• Repetitive processes
+• Time-consuming activities
+
+How to delegate effectively:
+• Choose the right person
+• Explain the why, not just the what
+• Set clear expectations
+• Provide necessary resources
+• Establish check-in points
+• Give authority with responsibility
+
+Delegation develops people and frees your time.
+
+Multiply your impact through others.`
+  },
+  {
+    id: 4080, tab: 'general', category: 'Leadership & Team Building',
+    title: 'The Feedback That Transforms',
+    body: `Feedback is a gift. Give it generously.
+
+The SBI model:
+• Situation: When and where
+• Behavior: What you observed
+• Impact: The effect it had
+
+Feedback principles:
+• Be timely (within 24-48 hours)
+• Be specific and actionable
+• Focus on behavior, not personality
+• Balance developmental with positive
+• Create dialogue, not monologue
+
+Regular feedback prevents performance surprises.
+
+Coach in the moment. Don't wait for reviews.`
+  },
+  {
+    id: 4081, tab: 'general', category: 'Leadership & Team Building',
+    title: 'The Meeting That Actually Works',
+    body: `Most meetings are time theft.
+
+Effective meeting essentials:
+• Clear purpose and agenda
+• Right people only
+• Start and end on time
+• Assign action items
+• Follow up accountability
+
+Meeting alternatives:
+• Walking meetings
+• Stand-up meetings
+• Async video updates
+• Collaborative documents
+• Quick check-ins
+
+Question every meeting:
+Could this be an email?
+
+Respect people's time. They'll respect you.`
+  },
+  {
+    id: 4082, tab: 'general', category: 'Leadership & Team Building',
+    title: 'The Culture Code That Wins',
+    body: `Culture eats strategy for breakfast.
+
+Building strong culture:
+• Define core values clearly
+• Hire for culture fit
+• Recognize value-aligned behavior
+• Address culture violations quickly
+• Lead by example daily
+
+Culture indicators:
+• How people treat each other
+• How decisions are made
+• What gets celebrated
+• How failures are handled
+• What stories get told
+
+Culture is built one interaction at a time.
+
+Be intentional about culture creation.`
+  },
+  {
+    id: 4083, tab: 'general', category: 'Leadership & Team Building',
+    title: 'The Conflict Resolution Playbook',
+    body: `Conflict is inevitable. Resolution is optional.
+
+Conflict resolution steps:
+• Understand all perspectives
+• Identify underlying interests
+• Generate multiple options
+• Use objective criteria
+• Seek win-win solutions
+
+Common conflict sources:
+• Unclear expectations
+• Resource competition
+• Communication breakdowns
+• Personality differences
+• Value misalignments
+
+Address conflict early.
+Unresolved conflict grows exponentially.`
+  },
+  {
+    id: 4084, tab: 'general', category: 'Leadership & Team Building',
+    title: 'The Employee Development Strategy',
+    body: `Develop your people or someone else will.
+
+Development approaches:
+• Stretch assignments
+• Cross-functional projects
+• Mentoring relationships
+• External training programs
+• Conference attendance
+• Book clubs and learning groups
+
+Create individual development plans:
+• Assess current skills
+• Identify career goals
+• Map development gaps
+• Create learning path
+• Track progress regularly
+
+Invest in people. They'll invest in your business.`
+  },
+  {
+    id: 4085, tab: 'general', category: 'Leadership & Team Building',
+    title: 'The Remote Team Advantage',
+    body: `Remote work isn't the future. It's the present.
+
+Remote team success factors:
+• Clear communication protocols
+• Regular check-ins and updates
+• Collaborative technology tools
+• Flexible work arrangements
+• Results-focused management
+
+Overcome remote challenges:
+• Isolation → Virtual social events
+• Communication → Over-communicate
+• Accountability → Clear metrics
+• Collaboration → Shared documents
+• Culture → Intentional connection
+
+Focus on outcomes, not hours.
+
+Results matter more than location.`
+  },
+  {
+    id: 4086, tab: 'general', category: 'Leadership & Team Building',
+    title: 'The Recognition System That Motivates',
+    body: `Recognition is the multiplier of performance.
+
+Effective recognition:
+• Timely (immediate is best)
+• Specific (what did they do?)
+• Personal (meaningful to them)
+• Public (when appropriate)
+• Connected to values
+
+Recognition ideas:
+• Peer nomination programs
+• Achievement celebrations
+• Growth opportunity rewards
+• Public acknowledgment
+• Personalized thank-you notes
+
+Catch people doing things right.
+
+What gets recognized gets repeated.`
+  },
+  {
+    id: 4087, tab: 'general', category: 'Leadership & Team Building',
+    title: 'The Decision-Making Authority Matrix',
+    body: `Clarity prevents chaos.
+
+Decision authority levels:
+• Inform: Keep me posted
+• Consult: Get my input first
+• Approve: I need to sign off
+• Decide: You have full authority
+
+RACI matrix for decisions:
+• Responsible: Who does the work?
+• Accountable: Who signs off?
+• Consulted: Who provides input?
+• Informed: Who needs to know?
+
+Clear authority = Fast decisions.
+
+Ambiguity kills momentum.`
+  },
+  {
+    id: 4088, tab: 'general', category: 'Leadership & Team Building',
+    title: 'The Psychological Safety Foundation',
+    body: `Teams perform best when people feel safe to speak up.
+
+Building psychological safety:
+• Encourage questions and ideas
+• Respond positively to failure
+• Demonstrate active listening
+• Admit your own mistakes
+• Ask for feedback regularly
+
+Signs of psychological safety:
+• People voice concerns openly
+• Mistakes are discussed freely
+• Help is requested without shame
+• Disagreement is welcomed
+• Risk-taking is encouraged
+
+Safety first. Performance follows.
+
+Create an environment where people can be themselves.`
+  },
+  {
+    id: 4089, tab: 'general', category: 'Leadership & Team Building',
+    title: 'The Succession Planning Secret',
+    body: `Your job as a leader is to work yourself out of a job.
+
+Succession planning steps:
+• Identify key positions
+• Assess future requirements
+• Evaluate potential candidates
+• Create development plans
+• Provide stretch opportunities
+
+Development strategies:
+• Job rotations
+• Acting assignments
+• Mentoring relationships
+• External experiences
+• Formal training programs
+
+The best leaders create more leaders.
+
+Build your replacement. Then move up.`
+  },
+  {
+    id: 4090, tab: 'general', category: 'Leadership & Team Building',
+    title: 'The Change Management Formula',
+    body: `Change is hard. Leading change is harder.
+
+Kotter's 8-step process:
+• Create urgency
+• Build a coalition
+• Develop a vision
+• Communicate the vision
+• Empower action
+• Generate short-term wins
+• Sustain acceleration
+• Institute change
+
+Resistance sources:
+• Fear of unknown
+• Comfort with status quo
+• Lack of trust
+• Poor communication
+• Insufficient involvement
+
+People don't resist change. They resist being changed.
+
+Involve them in creating the change.`
+  },
+  {
+    id: 4091, tab: 'general', category: 'Leadership & Team Building',
+    title: 'The Performance Management Revolution',
+    body: `Annual reviews are dead. Continuous performance management lives.
+
+New performance model:
+• Regular check-ins (weekly/bi-weekly)
+• Goal setting and tracking
+• Real-time feedback
+• Development focus
+• Future-oriented discussions
+
+Elements of effective performance management:
+• Clear expectations
+• Regular coaching
+• Skill development opportunities
+• Recognition and rewards
+• Career path planning
+
+Manage performance daily, not annually.
+
+Great performance is coached, not reviewed.`
+  },
+  {
+    id: 4092, tab: 'general', category: 'Leadership & Team Building',
+    title: 'The Team Communication Charter',
+    body: `Great teams communicate intentionally.
+
+Communication charter elements:
+• Preferred communication methods
+• Response time expectations
+• Meeting protocols
+• Feedback guidelines
+• Conflict resolution process
+
+Communication best practices:
+• Be clear and concise
+• Choose the right medium
+• Confirm understanding
+• Follow up on actions
+• Practice active listening
+
+Over-communicate important messages.
+
+Assume positive intent always.`
+  },
+  {
+    id: 4093, tab: 'general', category: 'Leadership & Team Building',
+    title: 'The Innovation Catalyst Framework',
+    body: `Innovation doesn't happen by accident.
+
+Create innovation conditions:
+• Psychological safety
+• Time for experimentation
+• Resources for exploration
+• Failure tolerance
+• Cross-pollination opportunities
+
+Innovation practices:
+• Regular brainstorming sessions
+• Innovation time (like Google's 20%)
+• Cross-functional teams
+• Customer co-creation
+• Rapid prototyping
+
+Kill projects early and often.
+
+Fail fast. Learn faster.`
+  },
+  {
+    id: 4094, tab: 'general', category: 'Leadership & Team Building',
+    title: 'The Emotional Intelligence Advantage',
+    body: `IQ gets you hired. EQ gets you promoted.
+
+Four domains of EQ:
+• Self-awareness
+• Self-management
+• Social awareness
+• Relationship management
+
+Develop emotional intelligence:
+• Practice mindfulness
+• Observe your reactions
+• Read social cues
+• Manage your triggers
+• Show empathy consistently
+
+Emotional contagion is real.
+
+Your emotions spread to your team.`
+  },
+  {
+    id: 4095, tab: 'general', category: 'Leadership & Team Building',
+    title: 'The Diversity and Inclusion Imperative',
+    body: `Diverse teams outperform homogeneous teams.
+
+Benefits of diversity:
+• Better decision-making
+• Increased creativity
+• Improved problem-solving
+• Enhanced innovation
+• Broader market understanding
+
+Building inclusive teams:
+• Recruit from diverse sources
+• Address unconscious bias
+• Create belonging opportunities
+• Amplify underrepresented voices
+• Measure inclusion metrics
+
+Diversity is being invited to the party.
+Inclusion is being asked to dance.
+
+Create belonging for everyone.`
+  },
+  {
+    id: 4096, tab: 'general', category: 'Leadership & Team Building',
+    title: 'The Trust Building Accelerator',
+    body: `Trust is the foundation of high-performing teams.
+
+Trust equation:
+Trust = (Credibility + Reliability + Intimacy) / Self-Orientation
+
+Build trust through:
+• Consistent actions matching words
+• Admitting mistakes openly
+• Keeping confidences
+• Following through on commitments
+• Showing vulnerability appropriately
+
+Trust multiplies everything:
+• Communication improves
+• Decisions happen faster
+• Performance increases
+• Innovation flourishes
+• Retention improves
+
+Trust is earned in drops and lost in buckets.`
+  },
+  {
+    id: 4097, tab: 'general', category: 'Leadership & Team Building',
+    title: 'The Coaching Conversation Model',
+    body: `Managers tell. Leaders coach.
+
+GROW coaching model:
+• Goal: What do you want to achieve?
+• Reality: What's the current situation?
+• Options: What could you do?
+• Will: What will you do?
+
+Coaching principles:
+• Ask more than tell
+• Listen actively
+• Be curious, not judgmental
+• Focus on their agenda
+• Support their solutions
+
+The best insights come from within.
+
+Coach them to their own answers.`
+  },
+  {
+    id: 4098, tab: 'general', category: 'Leadership & Team Building',
+    title: 'The Cross-Functional Collaboration Blueprint',
+    body: `Silos kill organizations. Collaboration creates value.
+
+Collaboration enablers:
+• Shared goals and metrics
+• Cross-functional teams
+• Regular communication touchpoints
+• Shared decision-making authority
+• Collaborative tools and spaces
+
+Breaking down silos:
+• Rotate people across functions
+• Create cross-functional projects
+• Align incentives and rewards
+• Share information transparently
+• Celebrate joint successes
+
+The magic happens at the intersections.
+
+Build bridges, not walls.`
+  },
+  {
+    id: 4099, tab: 'general', category: 'Leadership & Team Building',
+    title: 'The Leadership Development Pipeline',
+    body: `Leaders aren't born. They're developed systematically.
+
+Development pipeline stages:
+• Individual contributor excellence
+• First-time manager transition
+• Experienced manager growth
+• Senior leader development
+• Executive preparation
+
+Development methods:
+• Formal training programs
+• Mentoring relationships
+• Stretch assignments
+• Cross-functional exposure
+• External learning opportunities
+
+Invest in leadership development.
+
+Your future depends on it.`
+  },
+  {
+    id: 4100, tab: 'general', category: 'Leadership & Team Building',
+    title: 'The Legacy Leadership Mindset',
+    body: `Great leaders plant trees whose shade they'll never enjoy.
+
+Legacy leadership questions:
+• How will people remember me?
+• What impact am I having?
+• Who am I developing?
+• What am I building?
+• How am I serving?
+
+Creating your legacy:
+• Develop other leaders
+• Build lasting systems
+• Make difficult decisions
+• Stand for something meaningful
+• Leave things better than you found them
+
+Leadership isn't about you.
+
+It's about what you leave behind.`
+  }
+];
+
+/* ──────────────────────────────────────────────
    COMBINE ALL POSTS
    ────────────────────────────────────────────── */
-const allPosts: Post[] = [...socialPosts, ...contentPosts, ...skoolPosts];
+const allPosts: Post[] = [...socialPosts, ...contentPosts, ...skoolPosts, ...generalPosts];
 
 /* ──────────────────────────────────────────────
    TAB & CATEGORY CONFIGURATION
@@ -3475,6 +5568,11 @@ const tabConfig = {
     label: 'Skool',
     description: '100 posts — Connection, Celebration, Reflection, Question, Story, Growth, Monetization, Engagement, Operations & Lessons',
     categories: ['Connection', 'Celebration', 'Reflection', 'Question', 'Story', 'Growth', 'Monetization', 'Engagement', 'Operations', 'Lessons'],
+  },
+  general: {
+    label: 'General Business',
+    description: '100 posts — Business Strategy, Marketing & Sales, Mindset & Productivity, Leadership & Team Building',
+    categories: ['Business Strategy', 'Marketing & Sales', 'Mindset & Productivity', 'Leadership & Team Building'],
   },
 } as const;
 
@@ -3503,6 +5601,11 @@ const categoryColors: Record<string, { border: string; bg: string; badge: string
   Engagement: { border: 'border-indigo-500/40', bg: 'bg-indigo-500/10', badge: 'bg-indigo-500/20 text-indigo-300' },
   Operations: { border: 'border-zinc-400/40', bg: 'bg-zinc-400/10', badge: 'bg-zinc-400/20 text-zinc-300' },
   Lessons: { border: 'border-amber-400/40', bg: 'bg-amber-400/10', badge: 'bg-amber-400/20 text-amber-300' },
+  // General
+  'Business Strategy': { border: 'border-emerald-600/40', bg: 'bg-emerald-600/10', badge: 'bg-emerald-600/20 text-emerald-300' },
+  'Marketing & Sales': { border: 'border-blue-600/40', bg: 'bg-blue-600/10', badge: 'bg-blue-600/20 text-blue-300' },
+  'Mindset & Productivity': { border: 'border-purple-600/40', bg: 'bg-purple-600/10', badge: 'bg-purple-600/20 text-purple-300' },
+  'Leadership & Team Building': { border: 'border-amber-600/40', bg: 'bg-amber-600/10', badge: 'bg-amber-600/20 text-amber-300' },
 };
 
 /* ──────────────────────────────────────────────
@@ -3570,7 +5673,7 @@ export default function ContentLibrary() {
           </span>
         </h1>
         <p className="text-center text-neutral-500 text-sm mb-1">
-          {allPosts.length} ready-to-use posts for social, content & Skool engagement
+          {allPosts.length} ready-to-use posts for social, content, Skool & general business
         </p>
       </div>
 
