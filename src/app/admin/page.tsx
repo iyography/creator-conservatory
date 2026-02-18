@@ -235,24 +235,25 @@ export default function Admin() {
   const filteredQuizSubmissions = quizSubmissions.filter((q) => {
     const query = quizSearch.toLowerCase();
     return (
-      q.full_name.toLowerCase().includes(query) ||
-      q.email.toLowerCase().includes(query) ||
-      q.phone.toLowerCase().includes(query) ||
-      q.archetype_name.toLowerCase().includes(query) ||
-      q.track.toLowerCase().includes(query)
+      (q.full_name || "").toLowerCase().includes(query) ||
+      (q.email || "").toLowerCase().includes(query) ||
+      (q.phone || "").toLowerCase().includes(query) ||
+      (q.archetype_name || "").toLowerCase().includes(query) ||
+      (q.track || "").toLowerCase().includes(query)
     );
   });
 
   // Quiz stats
-  const explorerCount = quizSubmissions.filter((q) => q.track.toLowerCase() === "explorer").length;
-  const practitionerCount = quizSubmissions.filter((q) => q.track.toLowerCase() === "practitioner").length;
-  const masterCount = quizSubmissions.filter((q) => q.track.toLowerCase() === "master").length;
+  const explorerCount = quizSubmissions.filter((q) => (q.track || "").toLowerCase() === "explorer").length;
+  const practitionerCount = quizSubmissions.filter((q) => (q.track || "").toLowerCase() === "practitioner").length;
+  const masterCount = quizSubmissions.filter((q) => (q.track || "").toLowerCase() === "master").length;
 
   const topArchetype = (() => {
     if (quizSubmissions.length === 0) return "N/A";
     const counts: Record<string, number> = {};
     quizSubmissions.forEach((q) => {
-      counts[q.archetype_name] = (counts[q.archetype_name] || 0) + 1;
+      const name = q.archetype_name || "Unknown";
+      counts[name] = (counts[name] || 0) + 1;
     });
     return Object.entries(counts).sort((a, b) => b[1] - a[1])[0]?.[0] || "N/A";
   })();
@@ -573,14 +574,14 @@ export default function Admin() {
                           <td className="px-6 py-4">
                             <span
                               className={`inline-block px-3 py-1 rounded-full text-xs font-sans font-medium ${
-                                submission.track.toLowerCase() === "explorer"
+                                (submission.track || "").toLowerCase() === "explorer"
                                   ? "bg-green-500/20 text-green-400"
-                                  : submission.track.toLowerCase() === "practitioner"
+                                  : (submission.track || "").toLowerCase() === "practitioner"
                                   ? "bg-blue-500/20 text-blue-400"
                                   : "bg-purple-500/20 text-purple-400"
                               }`}
                             >
-                              {submission.track}
+                              {submission.track || "N/A"}
                             </span>
                           </td>
                           <td className="px-6 py-4 font-sans text-[#FAF6E3]/70">{submission.recommended_tier}</td>
