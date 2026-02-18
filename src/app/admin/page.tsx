@@ -84,7 +84,7 @@ interface QuizSubmission {
   focus: string[];
   ignore_list: string;
   ninety_day_path: string;
-  answers: Record<string, string>;
+  answers: { questionIndex?: number; selectedOption?: string }[] | Record<string, string>;
   created_at: string;
 }
 
@@ -220,7 +220,9 @@ export default function Admin() {
       "Ignore List": q.ignore_list,
       "90-Day Path": q.ninety_day_path,
       Bottleneck: q.bottleneck,
-      Answers: JSON.stringify(q.answers),
+      Answers: Array.isArray(q.answers)
+        ? q.answers.map((a: { questionIndex?: number; selectedOption?: string }) => `Q${(a.questionIndex ?? 0) + 1}: ${a.selectedOption || ''}`).join(' | ')
+        : JSON.stringify(q.answers),
       "Submitted At": new Date(q.created_at).toLocaleString(),
     }));
 
@@ -623,16 +625,24 @@ export default function Admin() {
                                   </div>
                                 </div>
                               </div>
-                              {submission.answers && Object.keys(submission.answers).length > 0 && (
+                              {submission.answers && (Array.isArray(submission.answers) ? submission.answers.length > 0 : Object.keys(submission.answers).length > 0) && (
                                 <div className="mt-6">
                                   <p className="font-sans text-xs text-[#FAF6E3]/40 uppercase tracking-wider mb-3">Quiz Answers</p>
                                   <div className="space-y-2">
-                                    {Object.entries(submission.answers).map(([question, answer]) => (
-                                      <div key={question} className="bg-[#FAF6E3]/5 rounded-xl p-3">
-                                        <p className="font-sans text-xs text-[#FAF6E3]/50 mb-1">{String(question)}</p>
-                                        <p className="font-sans text-sm text-[#FAF6E3]/80">{String(answer)}</p>
-                                      </div>
-                                    ))}
+                                    {Array.isArray(submission.answers)
+                                      ? submission.answers.map((a: { questionIndex?: number; selectedOption?: string }, i: number) => (
+                                          <div key={i} className="bg-[#FAF6E3]/5 rounded-xl p-3">
+                                            <p className="font-sans text-xs text-[#FAF6E3]/50 mb-1">Question {(a.questionIndex ?? i) + 1}</p>
+                                            <p className="font-sans text-sm text-[#FAF6E3]/80">{a.selectedOption || "N/A"}</p>
+                                          </div>
+                                        ))
+                                      : Object.entries(submission.answers).map(([question, answer]) => (
+                                          <div key={question} className="bg-[#FAF6E3]/5 rounded-xl p-3">
+                                            <p className="font-sans text-xs text-[#FAF6E3]/50 mb-1">{String(question)}</p>
+                                            <p className="font-sans text-sm text-[#FAF6E3]/80">{String(answer)}</p>
+                                          </div>
+                                        ))
+                                    }
                                   </div>
                                 </div>
                               )}
