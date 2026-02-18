@@ -17,14 +17,29 @@ export async function GET(request: Request) {
     // Verify session
     const { data: session, error: sessionError } = await supabase
       .from('admin_sessions')
-      .select('session_id')
+      .select('*')
       .eq('session_id', sessionId)
-      .gt('expires_at', new Date().toISOString())
       .single();
 
     if (sessionError || !session) {
       return NextResponse.json(
         { success: false, error: 'Invalid or expired session' },
+        { status: 401 }
+      );
+    }
+
+    // Check if session is expired (24 hours)
+    const sessionAge = Date.now() - new Date(session.created_at).getTime();
+    const maxAge = 24 * 60 * 60 * 1000; // 24 hours
+
+    if (sessionAge > maxAge) {
+      await supabase
+        .from('admin_sessions')
+        .delete()
+        .eq('session_id', sessionId);
+
+      return NextResponse.json(
+        { success: false, error: 'Session expired' },
         { status: 401 }
       );
     }

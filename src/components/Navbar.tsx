@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -18,42 +20,49 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? "py-3 bg-black/50 backdrop-blur-md"
-          : "py-5 bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-black/80 backdrop-blur-md ${
+        isScrolled ? "py-4" : "py-6"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a
+          <Link
             href="/"
-            className="text-lg md:text-xl font-bold transition-all duration-300 text-white hover:text-white/80"
+            className="flex items-center hover:opacity-80 transition-all duration-300"
           >
-            Creator Conservatory
-          </a>
+            <Image
+              src="/logo.avif"
+              alt="Creator Conservatory"
+              width={40}
+              height={40}
+              className="h-8 w-auto md:h-10"
+            />
+            <span className="ml-3 text-lg md:text-xl font-bold text-white">
+              Creator Conservatory
+            </span>
+          </Link>
 
           {/* Nav Links - only show on non-quiz pages */}
           {!isQuizPage && (
             <div className="hidden md:flex items-center gap-8">
               <a
-                href="#about"
-                className="font-sans text-sm text-white/80 hover:text-white transition-colors"
+                href="#why"
+                className="font-sans text-sm text-white/70 hover:text-white transition-colors"
               >
-                About
+                My Story
               </a>
               <a
                 href="#features"
-                className="font-sans text-sm text-white/80 hover:text-white transition-colors"
+                className="font-sans text-sm text-white/70 hover:text-white transition-colors"
               >
                 What&apos;s Inside
               </a>
               <a
-                href="#success-stories"
-                className="font-sans text-sm text-white/80 hover:text-white transition-colors"
+                href="#for-you"
+                className="font-sans text-sm text-white/70 hover:text-white transition-colors"
               >
-                Success Stories
+                For You
               </a>
             </div>
           )}
@@ -63,16 +72,24 @@ export default function Navbar() {
             {!isQuizPage && (
               <a
                 href="/quiz"
-                className="font-sans text-sm font-medium px-5 py-2 text-white border border-white hover:bg-white hover:text-black transition-all duration-300 rounded-full"
+                className="font-sans text-xs tracking-widest uppercase px-6 py-2 bg-[#9EB1C7] text-[#0A0A0A] hover:bg-[#b8c9d9] transition-all duration-300 rounded-sm"
               >
-                Take the Creator Quiz
+                Creator Quiz
               </a>
+            )}
+            {isQuizPage && (
+              <Link
+                href="/"
+                className="font-sans text-xs tracking-widest uppercase px-6 py-2 bg-[#9EB1C7] text-[#0A0A0A] hover:bg-[#b8c9d9] transition-all duration-300 rounded-sm"
+              >
+                Back to Home
+              </Link>
             )}
             <a
               href="https://www.skool.com/the-creator-conservatory-3365"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-sans text-sm font-medium px-5 py-2 transition-all duration-300 rounded-full bg-white text-black hover:bg-white/90"
+              className="font-sans text-xs tracking-widest uppercase px-6 py-2 bg-[#059669] text-white hover:bg-[#047857] transition-all duration-300 rounded-sm"
             >
               Join Free
             </a>

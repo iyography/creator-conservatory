@@ -1,18 +1,6 @@
 @import "tailwindcss";
 
 :root {
-  /* Creator Conservatory Brand Colors - Clean & Modern */
-  --background: #FFFFFF;
-  --background-alt: #F8FAFC;
-  --text-primary: #1E293B;
-  --text-secondary: #64748B;
-  --accent: #1E3A5F;
-  --accent-light: #3B82F6;
-  --cta: #059669;
-  --cta-hover: #047857;
-  --border: #E2E8F0;
-
-  /* Legacy colors for compatibility */
   --resonant-red: #8B2332;
   --soft-blue: #9EB1C7;
   --quiet-ivory: #FAF6E3;
@@ -21,20 +9,13 @@
   --grounded-black: #0A0A0A;
   --camel: #B8865B;
 
-  --foreground: var(--text-primary);
+  --background: var(--archive-white);
+  --foreground: var(--grounded-black);
 }
 
 @theme inline {
   --color-background: var(--background);
-  --color-background-alt: var(--background-alt);
   --color-foreground: var(--foreground);
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-  --color-accent: var(--accent);
-  --color-accent-light: var(--accent-light);
-  --color-cta: var(--cta);
-  --color-cta-hover: var(--cta-hover);
-  --color-border: var(--border);
   --color-resonant-red: var(--resonant-red);
   --color-soft-blue: var(--soft-blue);
   --color-quiet-ivory: var(--quiet-ivory);
@@ -74,7 +55,7 @@ body {
   font-family: var(--font-space-grotesk), sans-serif;
 }
 
-/* Ninja font for main headers - keeping for compatibility */
+/* Ninja font for main headers */
 .font-ninja {
   font-family: var(--font-black-ops), 'Black Ops One', sans-serif;
   text-transform: uppercase;
@@ -83,8 +64,8 @@ body {
 
 /* Selection styling */
 ::selection {
-  background-color: var(--accent);
-  color: white;
+  background-color: var(--resonant-red);
+  color: var(--archive-white);
 }
 
 /* Hide video controls and play buttons */

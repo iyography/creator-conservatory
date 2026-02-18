@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
     const { data: session, error: sessionError } = await supabase
       .from('admin_sessions')
       .select('*')
-      .eq('id', sessionId)
+      .eq('session_id', sessionId)
       .single();
 
     if (sessionError || !session) {
@@ -36,7 +36,7 @@ export async function GET(request: NextRequest) {
       await supabase
         .from('admin_sessions')
         .delete()
-        .eq('id', sessionId);
+        .eq('session_id', sessionId);
 
       return NextResponse.json(
         { success: false, error: 'Session expired' },

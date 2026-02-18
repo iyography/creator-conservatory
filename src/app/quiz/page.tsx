@@ -270,7 +270,7 @@ export default function QuizPage() {
   // ─── Result data ─────────────────────────────────────────────────────────
 
   const resultData = creatorType && track ? getResult(creatorType, resultArchetype, track) : undefined;
-  const archetypeData = ARCHETYPES[resultArchetype];
+  const archetypeData = ARCHETYPES[resultArchetype] ?? ARCHETYPES.performer;
   const bottleneckName = BOTTLENECK_NAMES[resultBottleneck] || resultBottleneck;
   const trackData = creatorType && track ? TRACKS[creatorType][track] : null;
 
@@ -785,6 +785,39 @@ export default function QuizPage() {
         )}
 
         {/* ── Results ───────────────────────────────────────────── */}
+        {step === "results" && !resultData && (
+          <motion.div
+            key="results-error"
+            variants={slideVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className="min-h-screen flex items-center justify-center px-6 relative z-10"
+          >
+            <div className="text-center max-w-md">
+              <p className="text-5xl mb-4">😕</p>
+              <h2 className="text-2xl font-bold text-white mb-3">Something went wrong</h2>
+              <p className="text-white/70 mb-6">We couldn&apos;t load your results. Please try taking the quiz again.</p>
+              <button
+                onClick={() => {
+                  setStep("intro");
+                  setCreatorType(null);
+                  setTrack(null);
+                  setCurrentQuestion(0);
+                  setTrackAnswers([]);
+                  setArchetypeAnswers([]);
+                  setCurrentSelections([]);
+                  setContactForm({ fullName: "", email: "", phone: "" });
+                }}
+                className="bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-white/90 transition-colors"
+              >
+                Retake Quiz
+              </button>
+            </div>
+          </motion.div>
+        )}
+
         {step === "results" && resultData && (
           <motion.div
             key="results"
@@ -862,7 +895,7 @@ export default function QuizPage() {
               >
                 <h3 className="text-lg font-semibold mb-4 text-white">Your Focus Areas</h3>
                 <div className="space-y-3">
-                  {resultData.focus.map((item, i) => (
+                  {(resultData.focus ?? []).map((item, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <span className="text-white mt-0.5">&#10003;</span>
                       <span className="text-white/70">{item}</span>
@@ -910,7 +943,7 @@ export default function QuizPage() {
               >
                 <h3 className="text-lg font-semibold mb-4 text-white">Your 90-Day Path</h3>
                 <div className="space-y-3">
-                  {resultData.ninetyDayPath.map((item, i) => (
+                  {(resultData.ninetyDayPath ?? []).map((item, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <span className="bg-white text-black text-xs px-2 py-1 rounded font-semibold">
                         {i + 1}

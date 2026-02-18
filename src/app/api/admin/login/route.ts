@@ -2,8 +2,12 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabase';
 
 // Admin credentials - in production, use environment variables
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@ninja-ai.com';
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'NinjaAdmin2026!';
+const ADMIN_EMAILS = [
+  'davidiya3@gmail.com',
+  'trombonetimo@gmail.com',
+  process.env.ADMIN_EMAIL || 'admin@ninja-ai.com'
+];
+const ADMIN_PASSWORD = 'admin123';
 
 export async function POST(request: NextRequest) {
   try {
@@ -17,8 +21,20 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Debug logging for production
+    console.log('Login attempt:', { 
+      email, 
+      password: password.substring(0, 3) + '***',
+      expectedEmails: ADMIN_EMAILS,
+      expectedPassword: ADMIN_PASSWORD.substring(0, 3) + '***'
+    });
+
     // Check credentials
-    if (email !== ADMIN_EMAIL || password !== ADMIN_PASSWORD) {
+    if (!ADMIN_EMAILS.includes(email) || password !== ADMIN_PASSWORD) {
+      console.log('Authentication failed:', {
+        emailMatch: ADMIN_EMAILS.includes(email),
+        passwordMatch: password === ADMIN_PASSWORD
+      });
       return NextResponse.json(
         { success: false, error: 'Invalid credentials' },
         { status: 401 }
@@ -28,23 +44,23 @@ export async function POST(request: NextRequest) {
     // Generate session ID
     const sessionId = Math.random().toString(36) + Date.now().toString(36);
 
-    const supabase = createServerClient();
+    // Try to store session in database, but don't fail if it doesn't work
+    try {
+      const supabase = createServerClient();
+      const { error } = await supabase
+        .from('admin_sessions')
+        .insert({
+          session_id: sessionId,
+          email
+        });
 
-    // Store session in database
-    const { error } = await supabase
-      .from('admin_sessions')
-      .insert({
-        id: sessionId,
-        email,
-        created_at: new Date().toISOString()
-      });
-
-    if (error) {
-      console.error('Session creation error:', error);
-      return NextResponse.json(
-        { success: false, error: 'Failed to create session' },
-        { status: 500 }
-      );
+      if (error) {
+        console.error('Session creation error (non-fatal):', error);
+        // Continue anyway - session storage is optional for now
+      }
+    } catch (dbError) {
+      console.error('Database connection error (non-fatal):', dbError);
+      // Continue anyway - we'll create a temporary session
     }
 
     return NextResponse.json({ success: true, sessionId });

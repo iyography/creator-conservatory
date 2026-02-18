@@ -40,15 +40,34 @@ const blackOps = Black_Ops_One({
 export const metadata: Metadata = {
   title: "Creator Conservatory",
   description: "Stop being the world's best-kept secret. Learn to create content that amplifies your art. Join the community for artists who want to grow online without sacrificing their credibility.",
+  icons: {
+    icon: [
+      { url: '/logo.avif', sizes: 'any', type: 'image/avif' },
+      { url: '/logo.avif', sizes: '32x32', type: 'image/avif' },
+      { url: '/logo.avif', sizes: '16x16', type: 'image/avif' }
+    ],
+    apple: [
+      { url: '/logo.avif', sizes: '180x180', type: 'image/avif' }
+    ],
+    other: [
+      {
+        rel: 'mask-icon',
+        url: '/logo.avif',
+        color: '#000000',
+      },
+    ],
+  },
   openGraph: {
     title: "Creator Conservatory",
     description: "Stop being the world's best-kept secret. Learn to create content that amplifies your art. Join the community for artists who want to grow online without sacrificing their credibility.",
     type: "website",
+    images: ['/logo.avif'],
   },
   twitter: {
     card: "summary_large_image",
     title: "Creator Conservatory",
     description: "Stop being the world's best-kept secret. Learn to create content that amplifies your art. Join the community for artists who want to grow online without sacrificing their credibility.",
+    images: ['/logo.avif'],
   },
 };
 
