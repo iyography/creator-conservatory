@@ -6,6 +6,8 @@ import { LogOut, Search, Download, RefreshCw, ChevronDown, ChevronUp, FileText }
 import * as XLSX from "xlsx";
 import { type Post, allPosts } from "@/lib/content-library/data";
 import { tabConfig, type TabKey, categoryColors } from "@/lib/content-library/config";
+import { getTrackQuestions, getArchetypeQuestions } from "@/lib/quiz/questions";
+import type { CreatorType, TrackKey } from "@/lib/quiz/types";
 
 // Video 31 background for login
 const VIDEO_URL = "/videos/rvids/31.mp4";
@@ -75,6 +77,7 @@ interface QuizSubmission {
   full_name: string;
   email: string;
   phone: string;
+  creator_type: string;
   track: string;
   archetype: string;
   archetype_name: string;
@@ -626,27 +629,44 @@ export default function Admin() {
                                   </div>
                                 </div>
                               </div>
-                              {submission.answers && (Array.isArray(submission.answers) ? submission.answers.length > 0 : Object.keys(submission.answers).length > 0) && (
-                                <div className="mt-6">
-                                  <p className="font-sans text-xs text-[#FAF6E3]/40 uppercase tracking-wider mb-3">Quiz Answers</p>
-                                  <div className="space-y-2">
-                                    {Array.isArray(submission.answers)
-                                      ? submission.answers.map((a: { questionIndex?: number; selectedOption?: string }, i: number) => (
-                                          <div key={i} className="bg-[#FAF6E3]/5 rounded-xl p-3">
-                                            <p className="font-sans text-xs text-[#FAF6E3]/50 mb-1">Question {(a.questionIndex ?? i) + 1}</p>
-                                            <p className="font-sans text-sm text-[#FAF6E3]/80">{a.selectedOption || "N/A"}</p>
-                                          </div>
-                                        ))
-                                      : Object.entries(submission.answers).map(([question, answer]) => (
-                                          <div key={question} className="bg-[#FAF6E3]/5 rounded-xl p-3">
-                                            <p className="font-sans text-xs text-[#FAF6E3]/50 mb-1">{String(question)}</p>
-                                            <p className="font-sans text-sm text-[#FAF6E3]/80">{String(answer)}</p>
-                                          </div>
-                                        ))
-                                    }
+                              {submission.answers && (Array.isArray(submission.answers) ? submission.answers.length > 0 : Object.keys(submission.answers).length > 0) && (() => {
+                                const ct = (submission.creator_type || "artist") as CreatorType;
+                                const tk = (submission.track || "emerging") as TrackKey;
+                                let trackQs: { question: string }[] = [];
+                                let archQs: { question: string }[] = [];
+                                try {
+                                  trackQs = getTrackQuestions(ct, tk);
+                                  archQs = getArchetypeQuestions(ct);
+                                } catch { /* fallback to empty */ }
+
+                                return (
+                                  <div className="mt-6">
+                                    <p className="font-sans text-xs text-[#FAF6E3]/40 uppercase tracking-wider mb-3">Quiz Answers</p>
+                                    <div className="space-y-2">
+                                      {Array.isArray(submission.answers)
+                                        ? submission.answers.map((a: { questionIndex?: number; selectedOption?: string }, i: number) => {
+                                            const qIdx = a.questionIndex ?? i;
+                                            const questionText = qIdx < 10
+                                              ? trackQs[qIdx]?.question
+                                              : archQs[qIdx - 10]?.question;
+                                            return (
+                                              <div key={i} className="bg-[#FAF6E3]/5 rounded-xl p-3">
+                                                <p className="font-sans text-xs text-[#D4A853] mb-1">{questionText || `Question ${qIdx + 1}`}</p>
+                                                <p className="font-sans text-sm text-[#FAF6E3]/80">{a.selectedOption || "N/A"}</p>
+                                              </div>
+                                            );
+                                          })
+                                        : Object.entries(submission.answers).map(([question, answer]) => (
+                                            <div key={question} className="bg-[#FAF6E3]/5 rounded-xl p-3">
+                                              <p className="font-sans text-xs text-[#D4A853] mb-1">{String(question)}</p>
+                                              <p className="font-sans text-sm text-[#FAF6E3]/80">{String(answer)}</p>
+                                            </div>
+                                          ))
+                                      }
+                                    </div>
                                   </div>
-                                </div>
-                              )}
+                                );
+                              })()}
                             </td>
                           </tr>
                         )}
